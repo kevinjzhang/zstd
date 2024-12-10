@@ -288,7 +288,7 @@ void ZSTD_ldm_fillHashTable(
         unsigned n;
 
         numSplits = 0;
-        hashed = ZSTD_ldm_gear_feed(&hashState, ip, iend - ip, splits, &numSplits);
+        hashed = ZSTD_ldm_gear_feed(&hashState, ip, (size_t)(iend - ip), splits, &numSplits);
 
         for (n = 0; n < numSplits; n++) {
             if (ip + splits[n] >= istart + minMatchLength) {
